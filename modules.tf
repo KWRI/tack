@@ -4,6 +4,7 @@ module "s3" {
   # variables
   aws = "${ var.aws }"
   bucket = "kz8s-pki-${ var.name }-${ var.aws["account-id"] }-${ var.aws["region"] }"
+  region = "${ var.aws["region"] }"
   name = "${ var.name }"
 }
 
@@ -35,6 +36,7 @@ module "route53" {
 module "pki" {
   source = "./modules/pki"
   depends-id = "${ module.vpc.depends-id }"
+  region = "${ var.aws["region"] }"
 
   # variables
   ami-id = "${ var.coreos-aws["ami"] }"
@@ -89,6 +91,7 @@ module "bastion" {
   instance-type = "${ var.instance-type["bastion"] }"
   internal-tld = "${ var.internal-tld }"
   key-name = "${ var.aws["key-name"] }"
+  region = "${ var.aws["region"] }"
   name = "${ var.name }"
 
   # modules

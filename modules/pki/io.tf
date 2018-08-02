@@ -13,6 +13,7 @@ variable "k8s" {
 }
 variable "name" {}
 variable "ip" {}
+variable "region" {}
 variable "s3-bucket" {}
 variable "s3-bucket-arn" {}
 variable "security-group-id" {}

@@ -90,7 +90,8 @@ post-terraform:
 
 
 ## destroy and remove everything
-clean: delete-addons destroy delete-keypair
+#clean: delete-addons destroy delete-keypair
+clean: 
 	@-pkill -f "kubectl proxy" ||:
 	@-rm terraform.tfvars ||:
 	@-rm terraform.tfplan ||:

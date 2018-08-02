@@ -2,10 +2,11 @@
 
 source ${0%/*}/retry
 
+echo $AWS_REGION
 echo $DIR_SSL
 PKI_S3_BUCKET=`terraform output s3-bucket`
 CA_PATH="s3://$PKI_S3_BUCKET/ca.pem"
 
 mkdir -p $DIR_SSL
 
-_retry "❤ Grabbing $CA_PATH" aws s3 cp $CA_PATH $DIR_SSL
+_retry "❤ Grabbing $CA_PATH" aws s3 cp $CA_PATH $DIR_SSL --region $AWS_REGION

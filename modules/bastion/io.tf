@@ -10,6 +10,7 @@ variable "s3-bucket-arn" {}
 variable "security-group-id" {}
 variable "subnet-id" {}
 variable "vpc-id" {}
+variable "region" {}
 
 output "depends-id" { value = "${ null_resource.dummy_dependency.id }" }
 output "ip" { value = "${ aws_instance.bastion.public_ip }" }
